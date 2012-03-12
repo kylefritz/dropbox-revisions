@@ -1,0 +1,12 @@
+<html>
+  <h1>hi <%=@account_info['display_name']%></h1>
+  
+  <h2>there are <%=@revisions.length%> revisions for <%=@path%></h2>
+  
+  <ul>
+  <%@revisions.each do |r| %>
+    <li><%=r['modified']%></li>
+  <%end%>
+  <ul>
+    
+</html>
