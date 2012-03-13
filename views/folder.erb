@@ -12,16 +12,16 @@
     <form action='/upload' method='post' enctype='multipart/form-data'>
       <label for='file'>Upload file:</label> <input name='file' type='file'/>
       <input type='submit' value='Upload'/>
-      <input name='folder' type='hidden' value='#{h entry['path']}'/>
+      <input name='folder' type='hidden' value='<%=h @entry['path']%>'/>
     </form>
     <ul>
         <% @entry['contents'].each do |child|%>
           <li>
-            <a href='/?path=#{h child['path']}'><%=h File.basename(child['path'])%>
+            <a href='/?path=<%=h child['path']%>'><%= File.basename(child['path'])%>
             <%if (child['is_dir'])%>
               /
             <%else%>
-              <a href='/revisions?path=#{h child['path']}'>revisions</a>
+              <a href='/revisions?path=<%=h child['path']%>'>revisions</a>
             <%end%>
             </a>
           </li>

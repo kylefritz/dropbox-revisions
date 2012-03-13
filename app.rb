@@ -96,10 +96,10 @@ get '/' do
     end
     
     if @entry['is_dir']
-        render_folder(db_client, @entry)
-    else
         @title = "Folder: #{path}"
         erb :folder
+    else
+        render_file(db_client, @entry)
     end
 end
 
